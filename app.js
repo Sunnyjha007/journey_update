@@ -1,3 +1,4 @@
+var cors = require('cors');
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
@@ -49,7 +50,7 @@ app.use(mongoSanitize());
 
 // Data sanitization against XSS
 app.use(xss());
-
+app.use(cors());
 // Prevent parameter pollution
 app.use(
   hpp({
